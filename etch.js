@@ -16,4 +16,29 @@ function makeGrid(gridSize) {
     }
 }
 
-makeGrid(16);
+function handleHover(evt) {
+    if (evt.target.classList.contains('grid-cell')) {
+        console.log("HOVER")
+        evt.target.classList.add('cell-filled');
+    }
+}
+
+function reset() {
+    const newSizeString = prompt('How many squares per side in the new grid? (Max 100)', '16')
+    let newSize = parseInt(newSizeString);
+    //Enforce that newSize needs to be 100 or less, and needs to be a number. Default to 16 if we weren't passed a number.
+    if (isNaN(newSize)) {
+        newSize = 16;
+    } else if (newSize > 100) {
+        newSize = 100;
+    }
+    //Clear the existing contents of the grid
+    grid.textContent = ''
+    //Make a new grid with our new size
+    makeGrid(newSize);
+}
+
+grid.addEventListener('mouseover', handleHover)
+document.getElementById('reset').addEventListener('click', reset)
+
+document.onload(makeGrid(16));
