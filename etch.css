@@ -60,7 +60,7 @@ h1 {
 
 .grid-cell {
     flex-grow: 1;
-    border: 1px solid black;
+    border: 1px solid lightgray;
 }
 
 .cell-filled {
