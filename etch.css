@@ -64,5 +64,6 @@ h1 {
 }
 
 .cell-filled {
+    border-color: black;
     background-color: black;
 }
